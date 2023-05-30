@@ -1,0 +1,12 @@
+	// basket = document.getElementsByClassName("to_basket")
+		// basket.addEventListener('click',() => {
+		// 	for (let i in data){
+		// 		if (basket.attributes[3].value==i){
+		// 			let alldata=[]
+		// 			for (let j in data[i]){
+		// 				alldata.push(data[i][j])
+		// 			}
+		// 			localStorage.setItem(i,alldata)
+		// 		}
+		// 	}
+		// })

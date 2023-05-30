@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	
+
 	<!--Less styles -->
 	<!-- Other Less css file //different less files has different color scheam
 	<link rel="stylesheet/less" type="text/css" href="themes/less/simplex.less">
@@ -476,15 +476,15 @@
 							<div class="thumbnail">
 								<a href="product_details.html"><img src="themes/images/products/6.jpg" alt="" /></a>
 								<div class="caption">
-									<h5>Product name</h5>
-									<p>
+									<h5 name="name_pr" value="sultanbek">Product name</h5>
+									<p name="description">
 										Lorem Ipsum is simply dummy text.
 									</p>
 
 									<h4 style="text-align:center"><a class="btn" href="product_details.html"> <i
-												class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-												class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-											href="#">$222.00</a></h4>
+												class="icon-zoom-in"></i></a> <a class="to_basket  btn" href="#"
+											data-id=1>Add to wer<i class="icon-shopping-cart"></i></a> <a
+											class="btn btn-primary" href="#">$222.00</a></h4>
 								</div>
 							</div>
 						</li>
@@ -497,9 +497,9 @@
 										Lorem Ipsum is simply dummy text.
 									</p>
 									<h4 style="text-align:center"><a class="btn" href="product_details.html"> <i
-												class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-												class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-											href="#">$222.00</a></h4>
+												class="icon-zoom-in"></i></a> <a class="to_basket btn" href="#"
+											data-id=2>Add to2 <i class="icon-shopping-cart"></i></a> <a
+											class="btn btn-primary" href="#">$222.00</a></h4>
 								</div>
 							</div>
 						</li>
@@ -707,6 +707,43 @@
 		</div>
 	</div>
 	<span id="themesBtn"></span>
+	<script>
+		//Выпускать код при соединении с джангой
+		// let data = {
+		// 	{% for i in data %}
+		// "{{i.id}}": {
+		// 	name_pr: "{{i.theme}}",
+		// 		price: "{{i.phone}}",
+		// 	 },
+		// {% endfor %}
+		//   }
+		let data = {
+			1: {
+				name: 'data.name',
+				price: 'data.price',
+			},
+			2: {
+				name: 'data.name2',
+				price: 'data.price2',
+			},
+		}
+
+		window.onclick = event => {
+			if (event.target.attributes.class.value.slice(0, 9) == 'to_basket') {
+				let id = event.target.attributes[2].value
+				for (let i in data) {
+					if (id == i) {
+						let alldata = []
+						for (let j in data[i]) {
+							alldata.push(data[i][j])
+						}
+						localStorage.setItem(i, alldata)
+					}
+				}
+			}
+		}
+
+	</script>
 </body>
 
 </html>
